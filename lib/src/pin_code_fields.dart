@@ -112,6 +112,9 @@ class PinCodeTextField extends StatefulWidget {
   /// Default is 16.
   final double errorTextSpace;
 
+  // Key to be used when doing Integration Tests
+  final Key textFormFieldKey;
+
   PinCodeTextField({
     Key key,
     @required this.appContext,
@@ -152,6 +155,7 @@ class PinCodeTextField extends StatefulWidget {
     this.onSaved,
     this.autoValidate = false,
     this.errorTextSpace = 16,
+    this.textFormFieldKey,
   }) : super(key: key);
 
   @override
@@ -428,6 +432,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
               absorbing: true, // it prevents on tap on the text field
               child: AutofillGroup(
                 child: TextFormField(
+                  key: widget.textFormFieldKey ?? UniqueKey(),
                   textInputAction: widget.textInputAction,
                   controller: _textEditingController,
                   focusNode: _focusNode,
