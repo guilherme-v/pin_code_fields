@@ -429,7 +429,8 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
           children: <Widget>[
             AbsorbPointer(
               // this is a hidden textfield under the pin code fields.
-              absorbing: true, // it prevents on tap on the text field
+              absorbing: widget.textFormFieldKey ==
+                  null, // true: it prevents on tap on the text field
               child: AutofillGroup(
                 child: TextFormField(
                   key: widget.textFormFieldKey ?? UniqueKey(),
